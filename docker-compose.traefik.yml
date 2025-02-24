@@ -1,0 +1,12 @@
+services:
+  stirling:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.stirling.rule=Host(`${FQDN_STIRLING:-stirling.test}`)"
+      - "traefik.http.routers.stirling.entrypoints=websecure"
+      - "traefik.http.routers.stirling.tls=true"
+
+networks:
+  default:
+    name: ${NETWORK_NAME:-traefik-network}
+    external: true
