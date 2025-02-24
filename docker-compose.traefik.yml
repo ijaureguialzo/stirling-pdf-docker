@@ -5,6 +5,7 @@ services:
       - "traefik.http.routers.stirling.rule=Host(`${FQDN_STIRLING:-stirling.test}`)"
       - "traefik.http.routers.stirling.entrypoints=websecure"
       - "traefik.http.routers.stirling.tls=true"
+      - "traefik.http.services.stirling.loadbalancer.server.port=8080"
 
 networks:
   default:
